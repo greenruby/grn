@@ -140,6 +140,11 @@ GEM
     slim (2.0.2)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
+    slim-rails (2.1.0)
+      actionpack (>= 3.0, < 4.1)
+      activesupport (>= 3.0, < 4.1)
+      railties (>= 3.0, < 4.1)
+      slim (~> 2.0)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -203,7 +208,7 @@ DEPENDENCIES
   rails-i18nterface
   sass-rails (~> 4.0.0)
   sdoc
-  slim
+  slim-rails
   sqlite3
   thin
   turbolinks

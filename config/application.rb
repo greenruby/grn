@@ -21,7 +21,7 @@ module Grn
     # config.i18n.default_locale = :de
 
     config.generators do |g|
-      g.test_framework  :rspec
+      g.test_framework  nil
     end
   end
 end
