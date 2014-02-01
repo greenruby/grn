@@ -1,7 +1,12 @@
 Grn::Application.routes.draw do
 
-
   devise_for :users
+
+  mount RailsI18nterface::Engine => "/translate", :as => "translate_engine" if Rails.env.development?
+
+  get 'about' => "application#about"
+  get 'index' => "application#index"
+
   root :to => "application#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

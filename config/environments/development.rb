@@ -27,5 +27,5 @@ Grn::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.quiet_assets = true
+  config.quiet_assets = false
 end
