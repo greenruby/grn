@@ -2,9 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '>= 4.1.0.beta'
 gem 'thin'
-gem 'dotenv'
+gem 'dotenv-rails'
+#gem 'rails_12factor'
 
 gem 'sqlite3'
+gem 'pg'
+
+gem 'unicorn'
+gem 'foreman'
 
 gem 'slim-rails'
 gem 'sass-rails', '~> 4.0.0'

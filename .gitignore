@@ -17,3 +17,6 @@
 
 /vendor/ruby
 /public/assets/
+/.env.test
+/.env.development
+/.env.production
