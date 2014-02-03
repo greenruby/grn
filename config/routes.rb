@@ -1,6 +1,6 @@
 Grn::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   mount RailsI18nterface::Engine => "/translate", :as => "translate_engine" if Rails.env.development?
 

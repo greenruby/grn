@@ -24,6 +24,7 @@ gem 'yajl-ruby', require: 'yajl'
 
 gem 'devise'
 gem 'omniauth'
+gem 'omniauth-github'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

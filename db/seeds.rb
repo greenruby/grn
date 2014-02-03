@@ -27,11 +27,9 @@ categories[:watch] = Category.create name: 'watch', description: 'Screencasts an
 categories[:listen] = Category.create name: 'listen', description: 'What could be heard last week ..'
 
 adminuser = User.new email: 'admin@example.com', password: 'admin'
-adminuser.skip_confirmation!
 adminuser.save! validate: false
 
 contributor = User.new email: 'contributor@example.com', password: 'contributor'
-contributor.skip_confirmation!
 contributor.save! validate: false
 
 editions = {}
