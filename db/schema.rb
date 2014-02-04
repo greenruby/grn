@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140204135517) do
 
   add_index "categories", ["name"], name: "index_categories_on_name"
 
-  create_table "edition_categories", id: false, force: true do |t|
+  create_table "edition_categories", force: true do |t|
     t.integer "edition_id"
     t.integer "category_id"
   end
@@ -61,14 +61,12 @@ ActiveRecord::Schema.define(version: 20140204135517) do
     t.string   "quantity"
     t.integer  "reporter_id"
     t.integer  "maintag_id"
-    t.integer  "edition_id"
-    t.integer  "category_id"
+    t.integer  "edition_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "items", ["category_id"], name: "index_items_on_category_id"
-  add_index "items", ["edition_id"], name: "index_items_on_edition_id"
+  add_index "items", ["edition_category_id"], name: "index_items_on_edition_category_id"
   add_index "items", ["maintag_id"], name: "index_items_on_maintag_id"
   add_index "items", ["reporter_id"], name: "index_items_on_reporter_id"
 

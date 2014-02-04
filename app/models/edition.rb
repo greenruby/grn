@@ -16,8 +16,7 @@
 
 class Edition < ActiveRecord::Base
 
-  has_many :edition_category
-  has_many :categories, through: :edition_category
-  has_many :items
+  has_many :edition_categories
+  has_many :categories, through: :edition_categories
 
 end

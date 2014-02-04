@@ -37,13 +37,36 @@ editions['001'] = Edition.create title: '001', pubdate: 14.days.ago, edito: 'the
 editions['002'] = Edition.create title: '002', pubdate: 7.days.ago, edito: 'the second edito.'
 editions['003'] = Edition.create title: '003', pubdate: 1.days.ago, edito: 'the third edito.'
 
+edition_categories = {}
+edition_categories['001-listen'] = EditionCategory.create edition: editions['001'], category: categories[:listen]
+edition_categories['001-watch'] = EditionCategory.create edition: editions['001'], category: categories[:watch]
+
 Item.create(
   title: 'RubyRogues 091',
   url: 'http://rubyrogues.com/091-rr-the-ruby-design-process-with-brian-shirai/',
-  description: 'Interesting discussion about ruby development governance, pretty long broadcast of almost 2 hours this time)..',
+  description: 'Interesting discussion about ruby development governance, pretty long broadcast of almost 2 hours this time).',
   pubdate: Date.parse('2013-02-09'),
   reporter: adminuser,
-  edition: editions['001'],
-  category: categories[:listen],
+  duration: 65,
+  edition_category: edition_categories['001-listen'],
   maintag: tags[:rb]
+)
+Item.create(
+  title: 'ruby show 221',
+  url: 'http://rubyshow.com/episodes/221',
+  description: '20 minutes of various reviews of blog posts and other rails related short info.',
+  pubdate: Date.parse('2013-02-01'),
+  reporter: adminuser,
+  duration: 42,
+  edition_category: edition_categories['001-listen'],
+  maintag: tags[:rb]
+)
+Item.create(
+  title: 'People the missing ingredient',
+  url: 'http://www.confreaks.com/videos/1108-gogaruco2012-people-the-missing-ingredient',
+  description: "most projects don't fail for technical reasons. The human factor is the weak link.",
+  pubdate: Date.parse('2012-09-17'),
+  reporter: contributor,
+  edition_category: edition_categories['001-watch'],
+  maintag: tags[:tool]
 )

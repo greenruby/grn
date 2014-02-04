@@ -9,15 +9,13 @@ class CreateItems < ActiveRecord::Migration
       t.string :quantity
       t.integer :reporter_id
       t.integer :maintag_id
-      t.integer :edition_id
-      t.integer :category_id
+      t.integer :edition_category_id
 
       t.timestamps
     end
     add_index :items, :reporter_id
     add_index :items, :maintag_id
-    add_index :items, :edition_id
-    add_index :items, :category_id
+    add_index :items, :edition_category_id
 
   end
 end

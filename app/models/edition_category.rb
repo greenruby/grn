@@ -2,6 +2,7 @@
 #
 # Table name: edition_categories
 #
+#  id          :integer          not null, primary key
 #  edition_id  :integer
 #  category_id :integer
 #
@@ -13,4 +14,5 @@
 class EditionCategory < ActiveRecord::Base
   belongs_to :edition
   belongs_to :category
+  has_many :items
 end

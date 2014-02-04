@@ -1,6 +1,6 @@
 class CreateEditionCategories < ActiveRecord::Migration
   def change
-    create_table :edition_categories, :id => false do |t|
+    create_table :edition_categories do |t|
       t.integer :edition_id
       t.integer :category_id
     end
