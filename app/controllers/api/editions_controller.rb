@@ -1,4 +1,5 @@
 class Api::EditionsController < ApplicationController
+  respond_to :json
 
   def index
     @editions = Edition.all

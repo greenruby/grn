@@ -1,5 +1,5 @@
 doctype html
-html
+html ng-app="grn"
   head
     title Grn
     = stylesheet_link_tag "application", media: "all"
@@ -23,9 +23,15 @@ html
             input.form-control.col-md-3 type="text" placeholder="Search..."
     .container
       .row
-        .col-sm-3.col-md-2.leftbar
+        .col-sm-3.col-md-2.leftbar ng-controller="GrnListCtrl"
+          h3 Archives
           ul.nav.nav-sidebar
-            li= link_to :index, "Home"
+            li ng-repeat="edition in editions"
+              a href="#/grn-{{edition.title}}"
+                span.pubdate
+                  | {{edition.pubdate | short_date}}
+                | {{edition.title}}
+
         .col-sm-5.col-md-7.main
           .notice.hidden= notice
           .alert.hidden= alert

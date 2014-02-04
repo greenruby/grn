@@ -6,6 +6,8 @@ $font-family-sans-serif: 'Inder', monospace
 $headings-font-family: 'Source Code Pro', monospace
 $input-bg: #f3f8f0
 
+$lightgray: #aaa
+
 @import "bootstrap"
 @import "bootstrap/theme"
 
@@ -14,6 +16,7 @@ $input-bg: #f3f8f0
 
 body
   padding-top: $navbar-height + 1px
+  color: $gray
 
 .topnav
   border-bottom: 1px solid #595
@@ -33,3 +36,7 @@ body
 h3.sub-header
   padding-bottom: 10px
   border-bottom: 1px solid #aaa
+
+.pubdate
+  float: right
+  color: $lightgray
