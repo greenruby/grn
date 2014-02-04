@@ -18,7 +18,7 @@ class Api::EditionsController < ApplicationController
         ]
       }
     ).where(title: params[:title])
-    #@edition = Edition.order(:pubdate).last unless @edition
+    @edition = Edition.order(:pubdate).last unless @edition.count == 1
     render json: @edition
   end
 
