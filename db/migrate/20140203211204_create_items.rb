@@ -4,14 +4,20 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.string :description
-      t.date :pudate
+      t.date :pubdate
       t.integer :duration
       t.string :quantity
-      t.belongs_to :user
-      t.belongs_to :edition
-      t.belongs_to :category
+      t.integer :reporter_id
+      t.integer :maintag_id
+      t.integer :edition_id
+      t.integer :category_id
 
       t.timestamps
     end
+    add_index :items, :reporter_id
+    add_index :items, :maintag_id
+    add_index :items, :edition_id
+    add_index :items, :category_id
+
   end
 end

@@ -6,9 +6,10 @@ class CreateAuthorizations < ActiveRecord::Migration
       t.string :uid
       t.string :token
       t.string :secret
-      t.belongs_to :user
+      t.integer :user_id
 
       t.timestamps
     end
+    add_index :authorizations, :user_id
   end
 end

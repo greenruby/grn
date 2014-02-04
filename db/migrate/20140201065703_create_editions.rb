@@ -7,5 +7,6 @@ class CreateEditions < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :editions, :title, :unique => true
   end
 end

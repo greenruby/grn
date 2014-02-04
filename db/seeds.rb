@@ -41,8 +41,8 @@ Item.create(
   title: 'RubyRogues 091',
   url: 'http://rubyrogues.com/091-rr-the-ruby-design-process-with-brian-shirai/',
   description: 'Interesting discussion about ruby development governance, pretty long broadcast of almost 2 hours this time)..',
-  pubdate: Date.new('2013-02-09'),
-  user: adminuser,
+  pubdate: Date.parse('2013-02-09'),
+  reporter: adminuser,
   edition: editions['001'],
   category: categories[:listen],
   maintag: tags[:rb]

@@ -9,4 +9,4 @@ Under initialization, nothing to see yet here.
 
 License
 ------------------
-copyright (c) 2014 mose
+MIT license - copyright (c) 2014 mose

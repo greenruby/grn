@@ -64,3 +64,24 @@ Grn::Application.routes.draw do
   #     resources :products
   #   end
 end
+
+# == Route Map (Updated 2014-02-04 12:35)
+#
+#                  Prefix Verb     URI Pattern                            Controller#Action
+#        new_user_session GET      /users/sign_in(.:format)               devise/sessions#new
+#            user_session POST     /users/sign_in(.:format)               devise/sessions#create
+#    destroy_user_session DELETE   /users/sign_out(.:format)              devise/sessions#destroy
+# user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        omniauth_callbacks#passthru {:provider=>/github/}
+#  user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) omniauth_callbacks#(?-mix:github)
+#        translate_engine          /translate                             RailsI18nterface::Engine
+#                   about GET      /about(.:format)                       application#about
+#                   index GET      /index(.:format)                       application#index
+#                    root GET      /                                      application#index
+#
+# Routes for RailsI18nterface::Engine:
+#             root GET  /                    rails_i18nterface/translate#index
+#        translate PUT  /translate(.:format) rails_i18nterface/translate#update
+# translate_reload GET  /reload(.:format)    rails_i18nterface/translate#reload
+# translate_export GET  /export(.:format)    rails_i18nterface/translate#export
+#                  POST /delete/*del         rails_i18nterface/translate#destroy
+#

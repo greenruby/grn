@@ -5,5 +5,7 @@ class CreateTags < ActiveRecord::Migration
       t.string :longname
       t.string :icon
     end
+    add_index :tags, :name
+    
   end
 end

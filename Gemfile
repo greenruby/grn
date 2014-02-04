@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '>= 4.1.0.beta'
 gem 'thin'
 gem 'dotenv-rails'
-#gem 'rails_12factor'
 
 gem 'sqlite3'
 gem 'pg'
@@ -34,14 +33,6 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 group :development do
   gem 'annotate'
@@ -53,6 +44,8 @@ group :development do
   gem 'awesome_print'
   gem 'rails-i18nterface'
   gem 'quiet_assets'
+  gem 'rails_best_practices'
+  gem 'rubocop'
 end
 
 group :test do

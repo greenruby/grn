@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203212603) do
+ActiveRecord::Schema.define(version: 20140203233232) do
+
+  create_table "authorizations", force: true do |t|
+    t.string   "provider"
+    t.string   "username"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -19,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140203212603) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "categories", ["name"], name: "index_categories_on_name"
 
   create_table "editions", force: true do |t|
     t.string   "title"
@@ -28,24 +43,34 @@ ActiveRecord::Schema.define(version: 20140203212603) do
     t.datetime "updated_at"
   end
 
+  add_index "editions", ["title"], name: "index_editions_on_title", unique: true
+
   create_table "items", force: true do |t|
     t.string   "title"
     t.string   "url"
     t.string   "description"
-    t.date     "pudate"
+    t.date     "pubdate"
     t.integer  "duration"
     t.string   "quantity"
-    t.integer  "user_id"
+    t.integer  "reporter_id"
+    t.integer  "maintag_id"
     t.integer  "edition_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tag_items", force: true do |t|
+  add_index "items", ["category_id"], name: "index_items_on_category_id"
+  add_index "items", ["edition_id"], name: "index_items_on_edition_id"
+  add_index "items", ["maintag_id"], name: "index_items_on_maintag_id"
+  add_index "items", ["reporter_id"], name: "index_items_on_reporter_id"
+
+  create_table "tag_items", id: false, force: true do |t|
     t.integer "tag_id"
     t.integer "item_id"
   end
+
+  add_index "tag_items", ["tag_id", "item_id"], name: "index_tag_items_on_tag_id_and_item_id"
 
   create_table "tags", force: true do |t|
     t.string "name"
@@ -53,22 +78,22 @@ ActiveRecord::Schema.define(version: 20140203212603) do
     t.string "icon"
   end
 
+  add_index "tags", ["name"], name: "index_tags_on_name"
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "country"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.string   "email",              default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
+    t.integer  "sign_in_count",      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
