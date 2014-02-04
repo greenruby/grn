@@ -12,6 +12,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_authorizations_on_user_id  (user_id)
+#
 
 class Authorization < ActiveRecord::Base
 

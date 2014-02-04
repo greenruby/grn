@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203233232) do
+ActiveRecord::Schema.define(version: 20140204135517) do
 
   create_table "authorizations", force: true do |t|
     t.string   "provider"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20140203233232) do
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name"
+
+  create_table "edition_categories", id: false, force: true do |t|
+    t.integer "edition_id"
+    t.integer "category_id"
+  end
+
+  add_index "edition_categories", ["edition_id", "category_id"], name: "index_edition_categories_on_edition_id_and_category_id"
 
   create_table "editions", force: true do |t|
     t.string   "title"

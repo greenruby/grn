@@ -20,6 +20,7 @@ gem 'jquery-rails'
 
 gem 'jbuilder', '~> 1.2'
 gem 'yajl-ruby', require: 'yajl'
+gem 'active_model_serializers'
 
 gem 'devise'
 gem 'omniauth'

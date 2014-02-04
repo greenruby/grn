@@ -1,11 +1,16 @@
 Grn::Application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  #devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   mount RailsI18nterface::Engine => "/translate", :as => "translate_engine" if Rails.env.development?
 
   get 'about' => "application#about"
   get 'index' => "application#index"
+
+  namespace :api, defaults: { format: :json } do
+    resources :editions, only: [ :index ]
+    resources :tags, only: [ :index ]
+  end
 
   root :to => "application#index"
 
@@ -65,18 +70,15 @@ Grn::Application.routes.draw do
   #   end
 end
 
-# == Route Map (Updated 2014-02-04 12:35)
+# == Route Map (Updated 2014-02-04 22:02)
 #
-#                  Prefix Verb     URI Pattern                            Controller#Action
-#        new_user_session GET      /users/sign_in(.:format)               devise/sessions#new
-#            user_session POST     /users/sign_in(.:format)               devise/sessions#create
-#    destroy_user_session DELETE   /users/sign_out(.:format)              devise/sessions#destroy
-# user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        omniauth_callbacks#passthru {:provider=>/github/}
-#  user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) omniauth_callbacks#(?-mix:github)
-#        translate_engine          /translate                             RailsI18nterface::Engine
-#                   about GET      /about(.:format)                       application#about
-#                   index GET      /index(.:format)                       application#index
-#                    root GET      /                                      application#index
+#           Prefix Verb URI Pattern             Controller#Action
+# translate_engine      /translate              RailsI18nterface::Engine
+#            about GET  /about(.:format)        application#about
+#            index GET  /index(.:format)        application#index
+#     api_editions GET  /api/editions(.:format) api/editions#index {:format=>:json}
+#         api_tags GET  /api/tags(.:format)     api/tags#index {:format=>:json}
+#             root GET  /                       application#index
 #
 # Routes for RailsI18nterface::Engine:
 #             root GET  /                    rails_i18nterface/translate#index

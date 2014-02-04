@@ -9,9 +9,15 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_editions_on_title  (title) UNIQUE
+#
 
 class Edition < ActiveRecord::Base
 
-  has_many :categories
+  has_many :edition_category
+  has_many :categories, through: :edition_category
+  has_many :items
 
 end
