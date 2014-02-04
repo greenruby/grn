@@ -6,6 +6,6 @@ class CreateTags < ActiveRecord::Migration
       t.string :icon
     end
     add_index :tags, :name
-    
+
   end
 end

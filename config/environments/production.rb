@@ -79,5 +79,5 @@ Grn::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.quiet_assets = true
-  
+
 end
