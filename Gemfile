@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 4.1.0.beta'
+gem 'rails', '>= 4.1.0.rc1'
 gem 'thin'
 gem 'dotenv-rails'
 
