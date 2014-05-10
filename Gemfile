@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 4.1.0.rc1'
+gem 'rails', '>= 4.1.1'
 gem 'thin'
 gem 'dotenv-rails'
 
@@ -11,15 +11,15 @@ gem 'unicorn'
 gem 'foreman'
 
 gem 'slim-rails'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', github: "rails/sass-rails"
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 #gem 'jquery-rails'
 #gem 'turbolinks'
 gem 'angularjs-rails'
 
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 gem 'yajl-ruby', require: 'yajl'
 gem 'active_model_serializers'
 
