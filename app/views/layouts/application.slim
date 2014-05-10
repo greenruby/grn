@@ -1,0 +1,61 @@
+doctype html
+html ng-app="grn"
+  head
+    title Grn
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1"
+  body
+    .navbar.navbar-fixed-top.topnav
+      .container
+        .navbar-header
+          button.navbar-toggle data-toggle="collapse" data-target=".navbar-collapse"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to "Green Ruby News", :index, class: "navbar-brand logoized"
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li= link_to "Home", :index
+            li= link_to "About", :about
+          form.navbar-form.navbar-right
+            input.form-control.col-md-3 type="text" placeholder="Search..."
+    .container
+      .row
+        .col-sm-3.col-md-2.leftbar ng-controller="GrnListCtrl"
+          h3 Archives
+          ul.nav.nav-sidebar
+            li ng-repeat="edition in editions"
+              a href="#/grn-{{edition.title}}"
+                span.pubdate
+                  | {{edition.pubdate | short_date}}
+                | {{edition.title}}
+
+        .col-sm-5.col-md-7.main
+          .notice.hidden= notice
+          .alert.hidden= alert
+
+          == yield
+
+        .col-sm-4.col-md-3.rightbar
+          blockquote
+            | Green Ruby News is a feed of fresh links of the week
+            | about ruby, javascript, webdev, devops, collected by mose every sunday.
+            p
+            form action="http://codegreenit.us6.list-manage1.com/subscribe/post?u=f1b3b59d2383eeb07537f6440&amp;id=7136c985cf"
+              .text-center
+                b
+                  | Subscribe
+              .text-center
+                | to the
+              .text-center
+                b
+                  | weekly newsletter
+              p
+              p
+                input.form-control name="EMAIL" placeholder="email address" type="email"
+                input.form-control.btn.btn-primary type="submit" value="Subscribe"
+          small.text-center Email distribution is powered by mailchimp.
+
+    = javascript_include_tag "application"

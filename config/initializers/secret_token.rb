@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Grn::Application.config.secret_key_base = '6e9388ae797f66366bfdac5e736e4bc97a8a815e0ce577f22b06771bdb65b4628727abd8c2e1a4666e4ea61787fa8ccd9d0bd5edeb4d1dcd9084fa46dcc21af4'
+Grn::Application.config.secret_key_base = ENV['RAILS_SECRET']

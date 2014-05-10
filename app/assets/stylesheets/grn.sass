@@ -1,0 +1,42 @@
+$navbar-default-bg: #987
+$navbar-height: 58px
+$brand-primary: #5a5
+$grid-columns: 12
+$font-family-sans-serif: 'Inder', monospace
+$headings-font-family: 'Source Code Pro', monospace
+$input-bg: #f3f8f0
+
+$lightgray: #aaa
+
+@import "bootstrap"
+@import "bootstrap/theme"
+
+@import url("http://fonts.googleapis.com/css?family=Source+Code+Pro")
+@import url("http://fonts.googleapis.com/css?family=Inder")
+
+body
+  padding-top: $navbar-height + 1px
+  color: $gray
+
+.topnav
+  border-bottom: 1px solid #595
+
+.logoized
+  padding-left: 100px
+  position: relative
+  height: $navbar-height
+  background: transparent url("/img/green-ruby-100.png") no-repeat 0px 5px
+  font-size: $font-size-h1
+  font-weight: 700
+
+.leftbar
+  background: transparent url("/img/green-ruby-100.png") no-repeat 0px (-($navbar-height - 4px))
+  padding-top: 81px - $navbar-height
+
+h3.sub-header
+  padding-bottom: 10px
+  border-bottom: 1px solid #aaa
+
+.pubdate
+  float: right
+  color: $lightgray
